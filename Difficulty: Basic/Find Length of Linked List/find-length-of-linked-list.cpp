@@ -12,14 +12,17 @@
 
 class Solution {
   public:
-    int getCount(Node* head) {
-        int count =0;
-        Node *temp = head;
+      int getCount(Node* head) {
+        // Code here
+        Node *temp=head;
+        int count=0;
         while(temp){
             count++;
-            temp= temp->next;
+            temp=temp->next;
+            
         }
         return count;
-        
     }
+        
+    
 };
