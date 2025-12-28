@@ -3,33 +3,36 @@
 class Solution {
   public:
     vector<vector<int>> getPairs(vector<int>& arr) {
-        sort(arr.begin(),arr.end());
-        vector<vector<int>>res;
-        //[-10,-9,-6,-5,-1,0,1,4,6,8]
-        int left=0;
-        int right=arr.size()-1;
-        while(left<right){
-            int temp= arr[left]+arr[right];
-            if(temp==0){
-                 res.push_back({arr[left], arr[right]});
-                left++;
-                right--;
-                
-                
-            }
-            else if(temp<0){
-                left++;
-                
-                
-            }
-            else{
-                right--;
-            }
+        // code here
+        // -10 -9 -6 -5 -1 0 1 4 6 8 
+        sort (arr.begin(),arr.end());
         
-                while (left < right && arr[left] == arr[left - 1]) left++;
-                while (left < right && arr[right] == arr[right + 1]) right--;
+        int i=0;int j=arr.size()-1;
+        vector<vector<int>> res;
+        while(i<j){
+            vector<int>temp;
+            int x=abs(arr[i]);
+            int y=abs(arr[j]);
+           
+            if(x==y ){
+                if(arr[i]<=0 and arr[j]>=0){
+               temp.push_back(arr[i]); 
+               temp.push_back(arr[j]);
+               if(res.empty()||res.back()!=temp)
+               res.push_back(temp);
+                }
+                i++;j--;
+               
+            }
+           else if(x<y){
+                j--;
+            }
+            else if(x>y){
+                i++;
+                
+            }
+            
         }
         return res;
-        
     }
 };
