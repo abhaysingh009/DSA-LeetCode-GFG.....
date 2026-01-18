@@ -9,7 +9,7 @@ public:
        }
        if(upper==word.size())return true;
        if(upper==0)return true;
-       if(upper==1 and word[0]>='A' and word[0]<'Z')return true;
+       if(upper==1 and word[0]>='A' and word[0]<='Z')return true;
 
         return false;
     }
