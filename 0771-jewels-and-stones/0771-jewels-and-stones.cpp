@@ -5,7 +5,7 @@ public:
         int res=0;
         set<char>st(jwels.begin(),jwels.end());
         for(char c:stones){
-            if(st.count(c)){
+            if(st.contains(c)){
                 res++;
             }
         }
