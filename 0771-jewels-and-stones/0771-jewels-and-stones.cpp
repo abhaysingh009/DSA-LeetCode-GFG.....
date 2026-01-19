@@ -4,7 +4,7 @@ public:
         
         int res=0;
         for(char c:stones){
-            if(jwels.contain(c)){
+            if(jwels.contains(c)){
                 res++;
             }
         }
