@@ -8,7 +8,7 @@ public:
         int index = 2;  
         
         while (curr->next != nullptr) {
-            if ((curr->val > prev->val and curr->val > curr->next->val) o
+            if ((curr->val > prev->val and curr->val > curr->next->val) or
                 (curr->val < prev->val and curr->val < curr->next->val)) {
                 criticalPos.push_back(index);
             }
