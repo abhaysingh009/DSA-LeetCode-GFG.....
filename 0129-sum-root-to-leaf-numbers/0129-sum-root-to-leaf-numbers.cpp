@@ -11,18 +11,18 @@
  */
 class Solution {
 public:
-void pre(TreeNode *root,int &sum ,int s){
+void pre(TreeNode *root,int &sum ,string s){
     if (!root)return;
-    s=s*10+root->val;
+    s+=to_string(root->val);
     if(!root->left and !root->right){
-        sum+=s;
+        sum+=stoi(s);
         return ;
     }
     pre(root->left,sum,s);
     pre(root->right,sum,s);
 }
     int sumNumbers(TreeNode* root) {
-        int s=0;
+        string s="";
         int sum=0;
         pre(root,sum,s);
         return sum;
