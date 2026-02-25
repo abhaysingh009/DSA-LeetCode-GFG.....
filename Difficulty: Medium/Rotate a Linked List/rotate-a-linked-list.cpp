@@ -28,8 +28,6 @@ class Solution {
         }
         k=k%n;
         if(!k)return head;
-       
-      
         temp->next=head;
         for(int i=0;i<k-1;i++){
             temp2=temp2->next;
