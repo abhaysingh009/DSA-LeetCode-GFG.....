@@ -1,17 +1,19 @@
-// User function Template for C++
+#include <bits/stdc++.h>
+using namespace std;
 
-void fizzBuzz(int num) {
-    if(num%3==0 and num%5==0){
-        cout<<"FizzBuzz\n";
+int main() {
+    int n;
+    cin>>n;
+    string ans="";
+    if(n%3 ==0 and n%5==0){
+        ans="FizzBuzz";
     }
-    else if(num%3==0){
-        cout<<"Fizz\n";
+    if(n%3 !=0 and n%5==0){
+        ans="Buzz";
     }
-    else if(num%5==0){
-        cout<<"Buzz\n";
+    if(n%3 ==0 and n%5!=0){
+        ans="Fizz";
     }
-    else{
-        cout<<num<<"\n";
-    }
-    
+   
+    (ans=="")?cout<<n:cout<<ans;
 }
