@@ -14,10 +14,9 @@ public:
             temp+=arr[i];
             st.push_back(temp);
         }
-        if(arr[n-1] != st.back()[0])
-{
-    st.push_back(string(1, arr[n-1]));
-}
+        if(arr[n-1] != st.back()[0]){
+            st.push_back(string(1, arr[n-1]));
+        }
         string ans="";
         for(int i=0;i<st.size();i++){
             string t=st[i];
