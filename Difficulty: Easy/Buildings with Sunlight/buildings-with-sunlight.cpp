@@ -1,17 +1,16 @@
-
-
 class Solution {
   public:
-    int longest(vector<int>& arr) {
-        // Write your code here
-        int g=arr[0];
+    int visibleBuildings(vector<int>& arr) {
         int ans=1;
-        for(int i =1;i<arr.size();i++){
-            if(arr[i]>=g){
+        int max=arr[0];
+        for(int i=1;i<arr.size();i++){
+            
+            if(arr[i]>=max){
                 ans++;
-                g=arr[i];
+                max=arr[i];
             }
         }
         return ans;
+        
     }
 };
