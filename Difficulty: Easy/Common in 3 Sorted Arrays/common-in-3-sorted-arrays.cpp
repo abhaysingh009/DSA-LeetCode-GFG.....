@@ -1,34 +1,28 @@
 class Solution {
   public:
-    // Function to find common elements in three arrays.
-    vector<int> commonElements(vector<int> &arr1, vector<int> &arr2,
-                               vector<int> &arr3) {
-        // Code Here
-        int i=0;
-        int j=0;
-        int k=0;
+    vector<int> commonElements(vector<int> &a, vector<int> &b, vector<int> &c) {
+         int i = 0, j = 0, k = 0;
+    vector<int> result;
+
+    while (i < a.size() && j < b.size() && k < c.size()) {
         
-        int n1=arr1.size();
-        int n2=arr2.size();
-        int n3=arr3.size();
-        vector<int>res;
-        
-        while(i<n1 and j<n2 and k<n3){
-            if(arr1[i]==arr2[j] and arr2[j]==arr3[k]){
-                if(res.empty()||res.back()!=arr1[i])
-                res.push_back(arr1[i]);
-                i++;j++;k++;
+        if (a[i] == b[j] && b[j] == c[k]) {
+            if (result.empty() || result.back() != a[i]) {
+                result.push_back(a[i]);
             }
-            else if(arr1[i]<arr2[j]||arr1[i]<arr3[k]){
-                i++;
-            }
-           else if(arr2[j]<arr1[i]||arr2[j]<arr3[k]){
-                j++;
-            }
-           else{
-                k++;
-            }
+            i++; j++; k++;
         }
-        return res;
+        else if (a[i] < b[j]) {
+            i++;
+        }
+        else if (b[j] < c[k]) {
+            j++;
+        }
+        else {
+            k++;
+        }
+    }
+
+    return result;
     }
 };
