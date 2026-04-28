@@ -9,20 +9,18 @@ public:
     
     int pop() {
         if(empty()){return -1;}
-        if(!st2.empty()){
-            int x=st2.top();
-            st2.pop();
-            return x;
-
-        }
-        
+        if(st2.empty()){
             while(!st1.empty()){
                 st2.push(st1.top());
                 st1.pop();
             }
+
+        }
             int x=st2.top();
             st2.pop();
             return x;
+        
+            
         
         
     }
