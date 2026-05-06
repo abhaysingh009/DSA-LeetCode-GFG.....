@@ -1,37 +1,29 @@
 /*
-
-Definition for Binary Tree Node
-struct Node
-{
+Definition for Node
+struct Node {
     int data;
     struct Node* left;
     struct Node* right;
 
-    Node(int x){
-        data = x;
+    Node(int val) {
+        data = val;
         left = right = NULL;
     }
 };
 */
-
 class Solution {
   public:
+  void helper(Node* root , int &x){
+      if(!root)return;
+      x++;
+      helper(root->left,x);
+      helper(root->right,x);
+  }
     int getSize(Node* root) {
-        queue<Node*>q;
+        int x=0;
+        helper(root,x);
+        return x;
         
-        int count=0;
-        q.push(root);
-        while(!q.empty()){
-            Node* temp=q.front();q.pop();
-            count++;
-            if(temp->left){
-                q.push(temp->left);
-            }
-            if(temp->right){
-                q.push(temp->right);
-            }
-        }
-        return count;
         
     }
 };
