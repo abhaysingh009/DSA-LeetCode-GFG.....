@@ -1,16 +1,14 @@
-// User function template for C++
-
-/* matrix : given input matrix, you are require
- to change it in place without using extra space */
-void rotate(vector<vector<int> >& mat) {
-    int n=mat.size();
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            swap(mat[i][j],mat[j][i]);
+class Solution {
+  public:
+    void rotateMatrix(vector<vector<int>>& mat) {
+        int n=mat.size();
+        vector<vector<int>>temp(n,vector<int>(n));
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                temp[n-1-j][i]=mat[i][j];
+            }
         }
+        mat=temp;
+        
     }
-    
-    for(int i=0;i<n;i++){
-        reverse(mat[i].begin(),mat[i].end());
-    }
-}
+};
