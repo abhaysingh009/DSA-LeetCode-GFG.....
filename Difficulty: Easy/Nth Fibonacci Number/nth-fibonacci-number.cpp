@@ -1,18 +1,9 @@
 class Solution {
   public:
     int nthFibonacci(int n) {
-        int a=0;
-        int b=1;
-        if(n==0)return a;
-        if(n==1) return b;
-        int c=0;
-        for(int i=2;i<=n;i++){
-           c=a+b;
-           a=b;
-           b=c;
-        }
-        return c;
+        if(n==1||n==0)return n;
+        return nthFibonacci(n-1)+nthFibonacci(n-2);
+    
         
     }
 };
-// 0 1 1 2 3 5
