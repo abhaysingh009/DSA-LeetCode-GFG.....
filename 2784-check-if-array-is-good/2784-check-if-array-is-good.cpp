@@ -7,7 +7,7 @@ public:
             m=max(m,i);
         }
 
-        if(m+1!=n||m==0)return 0;
+        if(m+1!=n)return 0;
 
         unordered_map<int,int>freq;
         for(int i:nums){
