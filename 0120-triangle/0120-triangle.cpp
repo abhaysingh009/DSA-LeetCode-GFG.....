@@ -1,18 +1,15 @@
 class Solution {
 public:
 #define IM INT_MAX
-int helper(int i,int j,int m,vector<vector<int>>& triangle,vector<vector<int>>&dp){
-    if(i==m-1)return triangle[i][j];
-    if(dp[i][j]!=1e9)return dp[i][j];
-    int x=helper(i+1,j,m,triangle,dp);
-    int y=helper(i+1,j+1,m,triangle,dp);
-    
-    return dp[i][j]=triangle[i][j]+min(x,y);
+int helper(int i,int j,vector<vector<int>>&arr,int m,vector<vector<int>>&dp){
+    if(i== m-1)return arr[i][j];
+    if(dp[i][j]!=IM)return dp[i][j];
+    int x=helper(i+1,j,arr,m,dp);
+    int y=helper(i+1,j+1,arr,m,dp);
+    return dp[i][j]=arr[i][j]+min(x,y);
 }
-    int minimumTotal(vector<vector<int>>& triangle) {
-        int m=triangle.size();
-        vector<vector<int>>dp(m,vector<int>(m,1e9));
-        return helper(0,0,triangle.size(),triangle,dp);
-        
+    int minimumTotal(vector<vector<int>>& arr) {
+        vector<vector<int>>dp(arr.size(),vector<int>(arr.size(),IM));
+        return helper(0,0,arr,arr.size(),dp);
     }
 };
