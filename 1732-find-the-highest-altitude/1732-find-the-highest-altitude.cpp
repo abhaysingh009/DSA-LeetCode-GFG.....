@@ -7,14 +7,10 @@ public:
             gain[i]=sum;
         }
         int m=INT_MIN;
-        for(int i=0;i<gain.size();i++){
-            m=max(m,gain[i]);
+        for(int i:gain){
+            m=max(m,i);
         }
-        if(m<=0){
-            return 0;
-        } else{
-            return m;
-        }
+        return (m<=0)?0:m;
         
     }
 };
