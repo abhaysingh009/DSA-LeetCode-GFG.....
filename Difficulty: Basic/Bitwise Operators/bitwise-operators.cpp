@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cin >> a >> b >> c;
+    int d,e,f,g;
+        d = a ^ a;
+        e = c ^ b;
+        f = a & b;
+        g = ~ e;
+    
+
+    cout << d << " " << e << " " << f << " " << g << endl;
+    return 0;
+}
