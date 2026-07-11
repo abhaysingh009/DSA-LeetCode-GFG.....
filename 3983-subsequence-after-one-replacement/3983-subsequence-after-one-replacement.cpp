@@ -13,7 +13,7 @@ public:
         vector<int> suf(m + 1, 0);
         i = n - 1;
         int cnt = 0;
-        for (int j = m - 1; j >= 0; j--) {
+        for (int j = m - 1; j > 0; j--) {
             if (i > 0 && s[i] == t[j]) {
                 i--;
                 cnt++;
