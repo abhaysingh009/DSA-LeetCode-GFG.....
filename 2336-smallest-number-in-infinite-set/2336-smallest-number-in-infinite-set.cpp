@@ -14,17 +14,21 @@ int smallest=1;
             smallest++;
         }
         st.erase(smallest);
-        popped.insert(smallest);
+        // popped.insert(smallest);
         smallest++;
         return smallest-1;
     }
     
     void addBack(int num) {
-      if(popped.count(num)){
-        smallest=min(smallest,num);
-        st.insert(num);
-        popped.erase(num);
-      }  
+        if(!st.count(num)){
+            st.insert(num);
+            smallest=min(smallest,num);
+        }
+    //   if(popped.count(num)){
+    //     smallest=min(smallest,num);
+    //     st.insert(num);
+    //     popped.erase(num);
+    //   }  
     }
 };
 
