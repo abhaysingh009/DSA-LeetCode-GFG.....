@@ -1,7 +1,6 @@
 class SmallestInfiniteSet {
 public:
 set<int>st;
-set <int>popped;
 int smallest=1;
     SmallestInfiniteSet() {
         for(int i=1;i<=1000;i++){
@@ -14,7 +13,6 @@ int smallest=1;
             smallest++;
         }
         st.erase(smallest);
-        // popped.insert(smallest);
         smallest++;
         return smallest-1;
     }
@@ -24,11 +22,6 @@ int smallest=1;
             st.insert(num);
             smallest=min(smallest,num);
         }
-    //   if(popped.count(num)){
-    //     smallest=min(smallest,num);
-    //     st.insert(num);
-    //     popped.erase(num);
-    //   }  
     }
 };
 
