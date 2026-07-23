@@ -12,14 +12,19 @@ public:
             prev*=nums[i];
         }
         // suffix
+        // prev=nums[n-1];
+        // suff[n-1]=1;
+        // for(int i=n-2;i>=0;i--){
+        //     suff[i]=prev;
+        //     prev*=nums[i];
+        // }
+        // for(int i=0;i<n;i++){
+        //     pre[i]*=suff[i];
+        // }
         prev=nums[n-1];
-        suff[n-1]=1;
         for(int i=n-2;i>=0;i--){
-            suff[i]=prev;
+            pre[i]*=prev;
             prev*=nums[i];
-        }
-        for(int i=0;i<n;i++){
-            pre[i]*=suff[i];
         }
         return pre;
     }
