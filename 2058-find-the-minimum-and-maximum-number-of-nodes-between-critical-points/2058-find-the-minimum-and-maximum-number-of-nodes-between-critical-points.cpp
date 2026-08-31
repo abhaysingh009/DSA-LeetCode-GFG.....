@@ -6,7 +6,7 @@ public:
         ListNode* prev = head;
         ListNode* curr = head->next;
         int index = 2;  
-        
+       
         while (curr->next != nullptr) {
             if ((curr->val > prev->val and curr->val > curr->next->val) or
                 (curr->val < prev->val and curr->val < curr->next->val)) {
