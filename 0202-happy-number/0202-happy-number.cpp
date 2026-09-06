@@ -1,29 +1,24 @@
 class Solution {
 public:
-    int digitSquareSum(int n) {
-        int sum = 0;
-        
-        while (n > 0) {
-            int digit = n % 10;
-            sum += digit * digit;
-            n /= 10;
-        }
-        
-        return sum;
-    }
-
     bool isHappy(int n) {
-        unordered_set<int> seen;
+        int x=n;
+        int sum=0;
+        set<int>st;
 
-        while (n != 1) {
-            if (seen.count(n)) {
-                return false;   // cycle found
+        while(1){
+            while(n>0){
+            int rem=n%10;
+            sum+=(1LL*rem*rem);
+            n/=10;
             }
+            if(st.count(sum))return 0;
+            st.insert(sum);
+            if(sum==1)return 1;
+            n=sum;
+            sum=0;
 
-            seen.insert(n);
-            n = digitSquareSum(n);
+           
         }
-
-        return true;
+        return 1;
     }
 };
