@@ -16,7 +16,7 @@ public:
         for(int i=1;i<nums.size();i++){
                 half+=(nums[(i+k-1)%n]);
                 half-=nums[i-1];
-                if(half>(sum-half))ans++;
+                if(2*half>sum)ans++;
 
         }     
         return ans;
