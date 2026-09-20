@@ -2,9 +2,9 @@ class Solution {
 public:
     int reverseDegree(string s) {
         int ans=0;
-        int i=1;
-        for(char c:s){
-            ans=ans+(('z'-c+1)*i++);
+        for(int i=0;i<s.size();i++){
+
+            ans+=((123-s[i])*(i+1));
         }
         return ans;
     }
