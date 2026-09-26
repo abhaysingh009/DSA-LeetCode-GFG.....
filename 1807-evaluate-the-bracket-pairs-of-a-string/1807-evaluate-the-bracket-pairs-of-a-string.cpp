@@ -1,7 +1,7 @@
 class Solution {
 public:
     string evaluate(string s, vector<vector<string>>& knowledge) {
-        map<string , string>mp;
+        unordered_map<string , string>mp;
         int n=s.size();
         for(int i= 0;i<knowledge.size();i++){
             mp[knowledge[i][0]]=knowledge[i][1];
@@ -18,7 +18,8 @@ public:
                 while(i<n and s[i]!=')'){
                     temp+=s[i++];
                 }   
-                if(mp.count(temp))
+                auto it=mp.find(temp);
+                if(it!=mp.end())
                     ans+=mp[temp];
                 else ans+='?';
                     i++;
