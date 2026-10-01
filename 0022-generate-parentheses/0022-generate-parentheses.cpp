@@ -8,8 +8,9 @@ bool isValid(string s){
         if(s[i]=='(')st.push(s[i]);
         else if(st.empty())return 0;
         else {
-            if(st.top()=='(' and s[i]==')')st.pop();
-            else return 0;
+            // if(st.top()=='(' and s[i]==')')st.pop();
+            // else return 0;
+            st.pop();
         }
         i++;
     }
