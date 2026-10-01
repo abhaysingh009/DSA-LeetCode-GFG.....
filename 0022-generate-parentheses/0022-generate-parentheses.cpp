@@ -16,42 +16,42 @@ bool isValid(string s){
     }
     return st.empty();
 }
-// void helper(int n, vector<string>& ans, string temp){
-//     int i=temp.size();
-//     if(i==2*n){
-//         if(isValid(temp))
-//         ans.push_back(temp);
-//         return ;
-//     }
-//     temp.push_back('(');
-//     helper(n,ans,temp);
-//     temp.pop_back();
-
-//     temp.push_back(')');
-//     helper(n,ans,temp);
-//     temp.pop_back();
-
-
-// }
-// vector<string> generateParenthesis(int n) {
-//         vector<string>ans;
-//         helper(n,ans,"");
-//         return ans;   
-//     }
-// };
-// second
-void helper(int n , vector<string>&ans,string temp){
-    if(temp.size()==2*n){
-        if(isValid(temp))ans.push_back(temp);
+void helper(int n, vector<string>& ans, string temp){
+    int i=temp.size();
+    if(i==2*n){
+        if(isValid(temp))
+        ans.push_back(temp);
         return ;
     }
-    helper(n,ans,temp+'(');
-    helper(n,ans,temp+')');
+    temp.push_back('(');
+    helper(n,ans,temp);
+    temp.pop_back();
+
+    temp.push_back(')');
+    helper(n,ans,temp);
+    temp.pop_back();
+
+
 }
 vector<string> generateParenthesis(int n) {
         vector<string>ans;
-        string temp="(";
-        helper(n,ans,temp);
+        helper(n,ans,"(");
         return ans;   
     }
 };
+// second
+// void helper(int n , vector<string>&ans,string temp){
+//     if(temp.size()==2*n){
+//         if(isValid(temp))ans.push_back(temp);
+//         return ;
+//     }
+//     helper(n,ans,temp+'(');
+//     helper(n,ans,temp+')');
+// }
+// vector<string> generateParenthesis(int n) {
+//         vector<string>ans;
+//         string temp="(";
+//         helper(n,ans,temp);
+//         return ans;   
+//     }
+// };
