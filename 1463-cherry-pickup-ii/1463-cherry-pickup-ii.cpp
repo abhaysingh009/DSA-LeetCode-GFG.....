@@ -9,17 +9,23 @@ int memo(vector<vector<int>>&mat,int i,int j,int y,vector<vector<vector<int>>>&d
     int ans=mat[i][j];
     if(j!=y) ans+=mat[i][y];
     if(dp[i][j][y]!=-1)return dp[i][j][y];
-   int f1 =  memo(mat,i+1,j-1,y-1,dp); 
-   int f2 =  memo(mat,i+1,j-1,y,dp); 
-   int f3 =  memo(mat,i+1,j-1,y+1,dp); 
-   int f4 =  memo(mat,i+1,j,y-1,dp); 
-   int f5 =  memo(mat,i+1,j,y,dp); 
-   int f6 =  memo(mat,i+1,j,y+1,dp); 
-   int f7 =  memo(mat,i+1,j+1,y-1,dp); 
-   int f8 =  memo(mat,i+1,j+1,y,dp); 
-   int f9 =  memo(mat,i+1,j+1,y+1,dp); 
+//    int f1 =  memo(mat,i+1,j-1,y-1,dp); 
+//    int f2 =  memo(mat,i+1,j-1,y,dp); 
+//    int f3 =  memo(mat,i+1,j-1,y+1,dp); 
+//    int f4 =  memo(mat,i+1,j,y-1,dp); 
+//    int f5 =  memo(mat,i+1,j,y,dp); 
+//    int f6 =  memo(mat,i+1,j,y+1,dp); 
+//    int f7 =  memo(mat,i+1,j+1,y-1,dp); 
+//    int f8 =  memo(mat,i+1,j+1,y,dp); 
+//    int f9 =  memo(mat,i+1,j+1,y+1,dp);
+        int temp=0; 
+        for(int a=-1;a<=1;a++){
+            for(int b=-1;b<=1;b++){
+               temp=max(temp, memo(mat,i+1,j+a,y+b,dp));
+            }
+        }
 
-   int temp=max({f1,f2,f3,f4,f5,f6,f7,f8,f9});
+//    int temp=max({f1,f2,f3,f4,f5,f6,f7,f8,f9});
 
    return dp[i][j][y]=ans+temp;
 
@@ -32,6 +38,7 @@ int memo(vector<vector<int>>&mat,int i,int j,int y,vector<vector<vector<int>>>&d
 //     if(i>=m or j>=n or j<0 or x>=m or y>=n or y<0)return 0;
 
 //     int ans=mat[i][j];
+
 //     if(j!=y) ans+=mat[x][y];
 //     if(dp[i][j][x][y]!=-1)return dp[i][j][x][y];
 //    int f1 =  helper(mat,i+1,j-1,x+1,y-1,dp); 
