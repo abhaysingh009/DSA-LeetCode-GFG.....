@@ -25,8 +25,8 @@ int lengthAfterTransformations(string s, int t) {
        }
 
 
-        vector<int>temp(26,0);
        for(int i=1;i<=t;i++){
+        vector<int>temp(26,0);
         for(int i=0;i<26;i++){
             if(i!=25){
                 temp[i+1]= freq[i]%mod;
@@ -35,8 +35,8 @@ int lengthAfterTransformations(string s, int t) {
                 temp[1]+=freq[i]%mod;
             }
         }
-        freq=temp;
-        for(int &i:temp)i=0;
+        freq=move(temp);
+        // for(int &i:temp)i=0;
        }
        int sum=0;
        for(auto it:freq){
