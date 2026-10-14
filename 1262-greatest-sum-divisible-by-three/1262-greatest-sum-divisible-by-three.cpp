@@ -32,6 +32,23 @@
 // dp====================================================================================
 class Solution{
     public:
+    int tabulation(vector<int>&nums){
+        int n=nums.size();
+
+        vector<vector<int>>dp(n+1,vector<int>(3,INT_MIN));
+        dp[n][0]=0;
+        for(int i=n-1;i>=0;i--){
+            for(int rem=0;rem<=2;rem++){
+                int newRem=(rem+nums[i])%3;
+                int take=nums[i]+dp[i+1][newRem];
+                int notTake=dp[i+1][rem];
+                dp[i][rem]=max(take,notTake);
+            }
+        }
+        return dp[0][0];
+
+
+    }
     int helper(vector<int>&nums,int rem,int i,vector<vector<int>>&dp){
         if(i>=nums.size()){
             if(rem==0)return 0;
@@ -45,7 +62,8 @@ class Solution{
     int maxSumDivThree(vector<int>& nums) {
         int n=nums.size();
         vector<vector<int>>dp(n,vector<int>(3,-1));
-        return helper(nums,0,0,dp);
+        // return helper(nums,0,0,dp);
+        return tabulation(nums);
     
 
     }
