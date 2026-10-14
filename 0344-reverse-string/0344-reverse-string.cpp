@@ -1,5 +1,9 @@
 class Solution {
 public:
+
+// striver 
+// tc=O(n);
+// sc=O(n)
     void helper(vector<char>&s,int i,vector<char>&st){
         if(i<0)return ;
         st.push_back(s[i]);
