@@ -1,20 +1,31 @@
 class Solution {
 public:
- int helper(int i,int j,string &s1,string &s2,vector<vector<int>>&dp){
-      if(i<0 ||j<0)return 0;
+int LCS(string &s1,string &s2,int m, int n,vector<vector<int>>&dp){
 
-      if(dp[i][j]!=-1)return dp[i][j];
-      if(s1[i]==s2[j]) return 1+helper(i-1,j-1,s1,s2,dp);
-
-      return dp[i][j]=max(helper(i-1,j,s1,s2,dp),helper(i,j-1,s1,s2,dp));
-  }
+    for(int i=1;i<=m;i++){
+        for(int j=1;j<=n;j++){
+            if(s1[i-1]==s2[j-1]){
+                dp[i][j]=1+dp[i-1][j-1];
+            }else {
+                dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+            }
+        }
+    }
+    // for(int i=0;i<m+1;i++){
+    //     for(int j=0;j<n+1;j++){
+    //         cout<<dp[i][j]<<" ";
+    //     }
+    //     cout<<"\n";
+    // }
+    return dp[m][n];
+}
     int longestPalindromeSubseq(string s) {
-        string s1=s;
         int m=s.size();
-        vector<vector<int>>dp(m,vector<int>(m,-1));
+        vector<vector<int>>dp(m+1,vector<int>(m+1,0));
+        string temp=s;
         reverse(s.begin(),s.end());
 
-         return helper(m-1,m-1,s1,s,dp);
-        
+       return LCS(s,temp,m,m,dp);
+
     }
 };
